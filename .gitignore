@@ -1,0 +1,97 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+PIPFILE.lock
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+build/
+dist/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+logs/
+*.log
+
+# Models (large files)
+models/**/*.pt
+models/**/*.onnx
+models/**/*.pth
+!
+models/**/.gitkeep
+
+# Sample data
+sample_videos/**
+!sample_videos/.gitkeep
+data/
+datasets/
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Credentials
+.aws/
+.gcp/
+*.pem
+*.key
+credentials.json
+
+# Temporary files
+*.tmp
+*.temp
+*.bak

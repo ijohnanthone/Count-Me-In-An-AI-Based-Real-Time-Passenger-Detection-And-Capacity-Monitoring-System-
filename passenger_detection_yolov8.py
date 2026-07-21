@@ -7,6 +7,24 @@ from ultralytics import YOLO
 # =========================
 VIDEO_PATH = "sample_video.mp4"   # Change this to your video path
 MODEL_PATH = "yolov8n.pt"         # Pretrained YOLOv8 nano model
+MAX_CAPACITY = 20                 # Maximum allowed passengers
+
+
+# Returns capacity status based on current count and max capacity
+def check_capacity(count, max_capacity):
+    if count < max_capacity:
+        return "AVAILABLE"
+    if count == max_capacity:
+        return "FULL"
+    return "OVER CAPACITY"
+
+
+def get_status_color(status):
+    if status == "AVAILABLE":
+        return (0, 255, 0)      # Green
+    if status == "FULL":
+        return (0, 255, 255)    # Yellow
+    return (0, 0, 255)          # Red
 
 
 def main():
@@ -66,6 +84,10 @@ def main():
                         2
                     )
 
+        # Check capacity status for current frame
+        capacity_status = check_capacity(people_count, MAX_CAPACITY)
+        status_color = get_status_color(capacity_status)
+
         # Display people count at top-left
         cv2.putText(
             frame,
@@ -73,7 +95,18 @@ def main():
             (10, 35),
             cv2.FONT_HERSHEY_SIMPLEX,
             1.0,
-            (0, 0, 255),
+            (255, 255, 255),
+            2
+        )
+
+        # Display capacity status near the count
+        cv2.putText(
+            frame,
+            f"Status: {capacity_status}",
+            (10, 70),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.9,
+            status_color,
             2
         )
 
